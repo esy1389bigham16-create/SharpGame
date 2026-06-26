@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>آموزش گودوت | فرادرس‌استایل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== ریست و پایه ===== */
+        * {
+            margin: 1;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #38383a;
+            color: #5a6a7a;
+            padding: 30px 17px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: #4b4949;
+            border-radius: 32px;
+            padding: 30px 35px 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        /* ===== هدر ===== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #eef0f3;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1e1e2a;
+        }
+        .logo h1 span {
+            color: #d1d5df;
+        }
+        .logo .sub {
+            font-size: 13px;
+            font-weight: 400;
+            color: #818994;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .nav a {
+            color: #4c75bb;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 18px;
+            border-radius: 30px;
+            transition: 0.2s;
+            border: 1px solid transparent;
+        }
+        .nav a:hover {
+            background: #f0f4ff;
+            color: #2a64e0;
+        }
+        .nav a.active {
+            background: #2563eb;
+            color: #fff;
+        }
+
+        /* ===== بنر ===== */
+        .hero {
+            background: linear-gradient(145deg, #f0f4ff, #ffffff);
+            border-radius: 24px;
+            padding: 40px 45px;
+            margin-bottom: 40px;
+            border: 1px solid #0080ff;
+        }
+        .hero h2 {
+            font-size: 34px;
+            font-weight: 800;
+            color: #1e1e2a;
+            margin-bottom: 10px;
+        }
+        .hero h2 span {
+            color: #2563eb;
+        }
+        .hero p {
+            color: #5a6a7a;
+            font-size: 17px;
+            font-weight: 400;
+            max-width: 480px;
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 38px;
+            background: #2563eb;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 15px;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
+        }
+        .hero-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2);
+        }
+
+        /* ===== عنوان بخش‌ها ===== */
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #7575ec;
+        }
+        .section-title .line {
+            display: inline-block;
+            display: inline-block;
+            width: 40px;
+            height: 3px;
+            background: #ecfd00;
+            border-radius: 10px;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+
+        /* ===== بخش اول: همه آموزش‌ها ===== */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 22px;
+            margin-bottom: 50px;
+        }
+
+        .video-card {
+            background: #818181;
+            border-radius: 20px;
+            padding: 16px 16px 20px;
+            border: 1px solid #d9ff00;
+            transition: 0.25s;
+            cursor: default;
+        }
+        .video-card:hover {
+            border-color: #2563eb;
+            background: #8da3da;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+        }
+
+        .video-thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #8fa9cc;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0400ff;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid #ff0000;
+        }
+        .video-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e1e2a;
+            margin-bottom: 3px;
+        }
+        .video-card .meta {
+            display: flex;
+            justify-content: space-between;
+            color: #00ff22;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        /* ===== بخش دوم: پیشنهادی ===== */
+        .suggested-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 18px;
+            margin-bottom: 50px;
+        }
+
+        .suggested-item {
+            background: #60d8a0;
+            border-radius: 18px;
+            padding: 22px 16px 20px;
+            border: 1px solid #eef0f3;
+            text-align: center;
+            transition: 0.25s;
+        }
+        .suggested-item:hover {
+            border-color: #03339b;
+            background: #ffffff;
+            transform: translateY(-3px);
+        }
+        .suggested-item .icon {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .suggested-item h5 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e1e2a;
+        }
+        .suggested-item span {
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        /* ===== بخش سوم: معرفی ===== */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 35px;
+            background: #1f0505;
+            border-radius: 24px;
+            padding: 35px 40px;
+            margin-bottom: 40px;
+            border: 1px solid #0066ff;
+        }
+
+        .about-text h3 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1e1e2a;
+            margin-bottom: 12px;
+        }
+        .about-text h3 span {
+            color: #2563eb;
+        }
+        .about-text p {
+            color: #5a6a7a;
+            line-height: 1.8;
+            font-weight: 400;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+        .about-text .highlight {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            align-content: start;
+        }
+        .stat-box {
+            background: #ffabab;
+            border-radius: 18px;
+            padding: 18px 12px;
+            text-align: center;
+            border: 1px solid #eef0f3;
+        }
+        .stat-box .number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1e1e2a;
+            display: block;
+        }
+        .stat-box .label {
+            color: #94a3b8;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        /* ===== بخش چهارم: پشتیبانی ===== */
+        .support-section {
+            background: #bdc0c4;
+            border-radius: 24px;
+            padding: 30px 40px;
+            border: 1px solid #eef0f3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .support-text h3 {
+            font-size: 21px;
+            font-weight: 700;
+            color: #1e1e2a;
+        }
+        .support-text p {
+            color: #5a6a7a;
+            font-weight: 400;
+            font-size: 14px;
+        }
+        .support-btn {
+            background: #2563eb;
+            border: none;
+            padding: 12px 36px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 14px;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
+        }
+        .support-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.18);
+        }
+
+        /* ===== فوتر ===== */
+        .footer {
+            margin-top: 35px;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+            font-weight: 400;
+            border-top: 1px solid #eef0f3;
+            padding-top: 25px;
+        }
+
+        /* ===== ریسپانسیو ===== */
+        @media (max-width: 900px) {
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 28px 25px;
+            }
+            .container {
+                padding: 20px 16px;
+            }
+            .hero {
+                padding: 30px 25px;
+            }
+            .hero h2 {
+                font-size: 28px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .video-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+            .suggested-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h2 {
+                font-size: 22px;
+            }
+            .support-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            .suggested-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="logo">
+            <h1>🎮 <span>Godot</span>Academy</h1>
+            <span class="sub">با ما حرفه ای شو</span>
+        </div>
+        <div class="nav">
+            <a href="#" class="active">خانه</a>
+            <a href="#">دوره‌ها</a>
+            <a href="#">پیشنهادی</a>
+            <a href="#">درباره من</a>
+            <a href="#">پشتیبانی</a>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <h2>آموزش <span>.....</span></span> از پایه تا حرفه‌ای</h2>
+        <p>قدرت گرفته توسط اسحاق</p>
+        <a href="#" class="hero-btn">شروع یادگیری</a>
+    </section>
+
+    <!-- ===== بخش اول: همه آموزش‌ها ===== -->
+    <div class="section-title">
+        <span class="line"></span> همه ی اموزش ها
+    </div>
+    <div class="video-grid">
+        <div class="video-card">
+            <div class="video-thumb">▶ ویدیو ۱</div>
+            <h4>هنوز مشخص نشده</h4>
+            <div class="meta"><span>.</span><span>مبتدی</span></div>
+        </div>
+        <div class="video-card">
+            <div class="video-thumb">▶ ویدیو ۲</div>
+            <h4>مشخص نشده</h4>
+            <div class="meta"><span>.</span><span>متوسط</span></div>
+        </div>
+        <div class="video-card">
+            <div class="video-thumb">▶ ویدیو ۳</div>
+            <h4>مشخص نشده</h4>
+            <div class="meta"><span>.</span><span>پیشرفته</span></div>
+        </div>
+        <div class="video-card">
+            <div class="video-thumb">▶ ویدیو ۴</div>
+            <h4>مشخص نشده</h4>
+            <div class="meta"><span>.</span><span>حرفه‌ای</span></div>
+        </div>
+        <div class="video-card">
+            <div class="video-thumb">▶ ویدیو ۵</div>
+            <h4>مشخص نشده</h4>
+            <div class="meta"><span>.</span><span>پیشرفته</span></div>
+        </div>
+        <div class="video-card">
+            <div class="video-thumb">▶ ویدیو ۶</div>
+            <h4>مشخص نشده</h4>
+            <div class="meta"><span>.</span><span>تخصصی</span></div>
+        </div>
+    </div>
+
+    <!-- ===== بخش دوم: پیشنهادی ===== -->
+    <div class="section-title">
+        <span class="line"></span>  دوره‌های پیشنهادی ما برای شما
+    </div>
+    <div class="suggested-grid">
+        <div class="suggested-item">
+            <span class="icon">🎯</span>
+            <h5>نامشخص</h5>
+            <span>۱۲ قسمت · جدید</span>
+        </div>
+        <div class="suggested-item">
+            <span class="icon">🧩</span>
+            <h5>نامشخص</h5>
+            <span>۸ قسمت · ویژه</span>
+        </div>
+        <div class="suggested-item">
+            <span class="icon">⚡</span>
+            <h5>نامشخص</h5>
+            <span>۵ قسمت · کاربردی</span>
+        </div>
+        <div class="suggested-item">
+            <span class="icon">🎨</span>
+            <h5>نامشخص</h5>
+            <span>۱۰ قسمت · محبوب</span>
+        </div>
+        <div class="suggested-item">
+            <span class="icon">🌐</span>
+            <h5>نامشخص</h5>
+            <span>۶ قسمت · جدید</span>
+        </div>
+    </div>
+
+    <!-- ===== بخش سوم: معرفی ===== -->
+    <div class="about-section">
+        <div class="about-text">
+            <h3>سلام من <span>اسحاق </span>هستم</h3>
+            <p>
+                <span class="highlight">سلام من اسحاق</span> هستم. برنامه نویسم و میخوام هرچی تا الان یاد گرفتم به صورت رایگان و vipبا شما درمیان بگزارم
+                از <span class="highlight">.</span> 
+            </p>
+            <p>
+                با <span class="highlight">پایتون</span> شروع کردم، بعد عاشق GDScript شدم و حالا
+                تجربیاتم رو به صورت رایگان و vip با شما به اشتراک می‌ذارم.
+            </p>
+            <p style="color: #94a3b8; font-size: 14px;">
+                🚀 هدف: ساده‌ترین مسیر یادگیری برنامه نویسی و طراحی سایت
+            </p>
+        </div>
+        <div class="about-stats">
+            <div class="stat-box">
+                <span class="number">...</span>
+                <span class="label">...</span>
+            </div>
+            <div class="stat-box">
+                <span class="number">...</span>
+                <span class="label">....</span>
+            </div>
+            <div class="stat-box">
+                <span class="number">...</span>
+                <span class="label">...</span>
+            </div>
+            <div class="stat-box">
+                <span class="number">....</span>
+                <span class="label">....</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== بخش چهارم: پشتیبانی ===== -->
+    <div class="support-section">
+        <div class="support-text">
+            <h3>🛟 پشتیبانی</h3>
+            <p>هر سوالی داری، با من در ارتباط باش.</p>
+        </div>
+        <button class="support-btn">تماس با پشتیبان</button>
+    </div>
+
+    <!-- ===== فوتر ===== -->
+    <div class="footer">
+        پیش‌نمایش ساده · کد کامل با HTML/CSS/JS آماده‌ی توسعه است
+    </div>
+
+</div>
+
+</body>
+</html>
